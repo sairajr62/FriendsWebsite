@@ -17,7 +17,7 @@ const Slider = () => {
   const images = [Image1, Image2, Image3, Image4];
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4">
+    <div className="w-full p-4">
       <Swiper
         navigation
         modules={[Navigation, Autoplay, Pagination, Scrollbar, A11y]}
@@ -29,14 +29,14 @@ const Slider = () => {
         autoplay={{
           delay: 2000,
         }}
-        className="rounded-lg overflow-hidden"
+        className="w-full h-[800px] rounded-lg overflow-hidden"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-auto object-cover"
+              className="w-full h-full object-cover"
             />
           </SwiperSlide>
         ))}
