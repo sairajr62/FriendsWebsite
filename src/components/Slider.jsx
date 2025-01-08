@@ -1,9 +1,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Autoplay, Pagination, Scrollbar, A11y } from 'swiper/modules';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 // Import your images
 import Image1 from "../assets/Friends1.jpg";
@@ -17,18 +19,23 @@ const Slider = () => {
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
       <Swiper
-        modules={[Navigation, Pagination]}
         navigation
+        modules={[Navigation, Autoplay, Pagination, Scrollbar, A11y]}
         pagination={{ clickable: true }}
         spaceBetween={30}
         slidesPerView={1}
+        loop={true}
+        speed={400}
+        autoplay={{
+          delay: 2000,
+        }}
         className="rounded-lg overflow-hidden"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <img
               src={image}
-
+              alt={`Slide ${index + 1}`}
               className="w-full h-auto object-cover"
             />
           </SwiperSlide>
